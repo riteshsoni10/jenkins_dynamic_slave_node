@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Config
+
+clusters:
+- cluster:
+    server: https://${KUBERNETES_CLUSTER_IP}:8443
+    certificate-authority: ${CA_CERTIFICATE}
+  name: minikube
+
+contexts:
+- context:
+    user: jenkins_slave_node
+    cluster: minikube
+  name: slave_node
+
+current-context: slave_node
+
+users:
+- name: jenkins_slave_node
+  user:
+    client-key: '${CLIENT_KEY}'
+    client-certificate: ${CLIENT_CERTIFICATE}
+
