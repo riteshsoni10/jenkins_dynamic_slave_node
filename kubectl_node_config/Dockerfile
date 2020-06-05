@@ -17,6 +17,9 @@ ENV CLIENT_CERTIFICATE="client.crt"
 ENV CLIENT_KEY="client.key"
 
 EXPOSE 22
+RUN envsubst "`env | awk -F = '{printf " \\\\$%s", $1}'`" < /home/slave_node/.kube/config.template > /home/slave_node/.kube/config
 
-CMD sh -c "envsubst \"`env | awk -F = '{printf \" \\\\$%s\", $1}'`\" < /home/slave_node/.kube/config.template > /home/slave_node/.kube/config  && /usr/sbin/sshd -D"
+
+CMD ["/usr/sbin/sshd", "-D"]
+
 
