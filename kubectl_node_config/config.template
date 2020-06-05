@@ -18,6 +18,6 @@ current-context: slave_node
 users:
 - name: jenkins_slave_node
   user:
-    client-key: '${CLIENT_KEY}'
+    client-key: ${CLIENT_KEY}
     client-certificate: ${CLIENT_CERTIFICATE}
 
