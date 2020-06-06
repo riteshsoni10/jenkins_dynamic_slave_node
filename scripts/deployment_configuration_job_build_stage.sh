@@ -1,3 +1,9 @@
+if $IMAGE_NAME == ""
+then
+	echo  "No Image Providec...Exiting"
+	exit 1
+fi
+
 deployment_name=`echo $IMAGE_NAME| cut -d: -f 1 | awk -F/ '{print $2}'`
 
 # Check if application already deployed
