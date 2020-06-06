@@ -1,6 +1,6 @@
 if $IMAGE_NAME == ""
 then
-	echo  "No Image Providec...Exiting"
+	echo  "No Image Provided...Exiting"
 	exit 1
 fi
 
