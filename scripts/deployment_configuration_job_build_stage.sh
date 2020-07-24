@@ -1,11 +1,5 @@
 #Example of IMAGE_NAME => riteshsoni296/apache-php7:latest
-
-# If no value is provided in IMAGE_NAME variable
-if $IMAGE_NAME == ""
-then
-	echo  "No Image Provided...Exiting"
-	exit 1
-fi
+IMAGE_NAME="riteshsoni296/simplewebsite"
 
 deployment_name=`echo $IMAGE_NAME| cut -d: -f 1 | awk -F/ '{print $2}'`
 
