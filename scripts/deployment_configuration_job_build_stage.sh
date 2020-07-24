@@ -30,7 +30,7 @@ else
 	if kubectl create deployment $deployment_name --image $IMAGE_NAME
 	then
 		#Wait till the pods are in running state
-		while kubectl get pods -l app=$deployment_name -o jsonpath="{.items[*].status.containerStatuses[*].state.running}" 
+		while [ -z "$(kubectl get pods -n $DEPLOYMENT_NAME -l app=$DEPLOYMENT_NAME -o jsonpath=\"{.items[*].status.containerStatuses[*].state.running}\"))" ]
 		do
 			sleep 5
 		done
