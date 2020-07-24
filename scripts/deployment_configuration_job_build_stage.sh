@@ -1,4 +1,4 @@
-$Example of IMAGE_NAME => riteshsoni296/apache-php7:latest
+#Example of IMAGE_NAME => riteshsoni296/apache-php7:latest
 
 # If no value is provided in IMAGE_NAME variable
 if $IMAGE_NAME == ""
