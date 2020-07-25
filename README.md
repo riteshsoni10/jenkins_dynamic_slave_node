@@ -136,7 +136,7 @@ b. Click on `Manage Nodes and Clouds`
 c. Click on `Configure Clouds`
 
 <p align="center">
-  <img src="screenshots/configure_cloud.png" width="950" title="Configure Jenkins Cloud">
+  <img src="screenshots/configure_cloud.png" width="350" title="Configure Jenkins Cloud">
   <br>
   <em>Fig 3.: Configure Cloud  </em>
 </p>
