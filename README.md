@@ -261,11 +261,63 @@ Registry Credentials:
   <em>Fig 8.: Build and Push Application Container Image  </em>
 </p>
 
+
 7. Save and Apply
 
 <p align="center">
   <img src="screenshots/build_config_success.png" width="950" title="Build Triggers">
   <br>
-  <em>Fig 8.: Job Console Output </em>
+  <em>Fig 9.: Job Console Output </em>
 </p>
 
+
+## Job 2: Rollout or Deploy New Application
+
+Steps to create Build-Configuration Job are as follows:
+
+1. Create a New Item at the left column in Jenkins Welcome page
+
+2. Configure Job Name
+
+3. Enable `Restrict Where This Project can be run`
+
+```
+Label Expression: <label_configured_of_cloud>
+```
+
+<p align="center">
+  <img src="screenshots/deployment_config_slave_node.png" width="950" title="Job Environment Configuration">
+  <br>
+  <em>Fig 10.: Job Environment Configuration </em>
+</p>
+
+4. Configure **Build Triggers**
+
+Enable `Build After Other Projects are built` for Job Chaining.
+```
+Projects to watch: Build-Configuration
+```
+<p align="center">
+  <img src="screenshots/deployment_config_build_trigger.png" width="950" title="Build Trigger Configuration">
+  <br>
+  <em>Fig 11.: Build Trigger Configuration </em>
+</p>
+
+5. Steps to perform at **Build Stage**
+
+Select `Execute Shell` from `Add Build Step` dropdown.
+The script is present in `scripts` directory in this repository with name `deployment_configuration_job_build_stage.sh`. The contents of script needs to be copied in the build stage of the job.
+
+<p align="center">
+  <img src="screenshots/deployment_config_build_stages.png" width="950" title="Build Stage">
+  <br>
+  <em>Fig 12.: Build Stage Configuration </em>
+</p>
+
+6. Save and Apply
+
+
+   
+ > Source: LinuxWorld Informatics. Private Ltd.
+ > 
+ > Under Guidance of : Mr. [Vimal Daga](https://in.linkedin.com/in/vimaldaga)
