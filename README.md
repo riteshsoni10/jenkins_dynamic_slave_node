@@ -225,7 +225,7 @@ The **website code** that is used in this repository for *deployment* on EC2 web
 4. Configure **Source Code Management** 
 
 <p align="center">
-  <img src="screenshots/build_config_git_repo.png" width="950" title="SCM Configuration">
+  <img src="screenshots/build_config_scm.png" width="950" title="SCM Configuration">
   <br>
   <em>Fig 7.: Source Code Management Configuration  </em>
 </p>
@@ -305,8 +305,7 @@ Projects to watch: Build-Configuration
 
 5. Steps to perform at **Build Stage**
 
-Select `Execute Shell` from `Add Build Step` dropdown.
-The script is present in `scripts` directory in this repository with name `deployment_configuration_job_build_stage.sh`. The contents of script needs to be copied in the build stage of the job.
+Select `Execute Shell` from `Add Build Step` dropdown. The script is present in `scripts` directory in this repository with name `deployment_configuration_job_build_stage.sh`. The contents of script needs to be copied in the build stage of the job.
 
 <p align="center">
   <img src="screenshots/deployment_config_build_stages.png" width="950" title="Build Stage">
