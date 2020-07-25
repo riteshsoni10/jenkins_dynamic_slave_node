@@ -7,7 +7,8 @@ RUN apk add --no-cache --update openssh openjdk11 curl gettext && \
     chmod +x kubectl && \
     mv kubectl /usr/bin && \
     ssh-keygen -A && \
-    mkdir /home/slave_node/.kube
+    mkdir /home/slave_node/.kube && \
+    apk del curl
 
 COPY client.crt client.key ca.crt config.template /home/slave_node/.kube/
 RUN chown -Rf slave_node.slave_node /home/slave_node/.kube
