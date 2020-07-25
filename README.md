@@ -128,3 +128,74 @@ So, dynamic node comes to rescue; which is only configured when there are availa
 Plugins to be installed in Jenkins Server
 - Docker Plugin
 
+
+a. Click on `Manage Jenkins` on Left Column of Jenkins Landing Page
+
+b. Click on `Manage Nodes and Clouds`
+
+c. Click on `Configure Clouds`
+
+<p align="center">
+  <img src="screenshots/configure_cloud.png" width="950" title="Configure Jenkins Cloud">
+  <br>
+  <em>Fig 3.: Configure Cloud  </em>
+</p>
+
+d. Select `Docker` from  `Add a New Cloud` dropdown
+
+e. Provide Name for Slave Node like *kubectl_node*
+
+f. Click on Docker Cloud Details
+
+g. Provide Docker Server URL  
+
+    For example:
+        Docker Server IP                        : 192.168.99.105
+        Port Configured on Docker Service  File : 5274
+    
+```
+Docker Host URI : tcp://192.168.99.105:5274
+```
+
+<p align="center">
+  <img src="screenshots/configure_cloud_details_1.png" width="950" title="Configure Docker Server Details">
+  <br>
+  <em>Fig 3.: Configure Docker Server Details  </em>
+</p>
+
+
+h. After Configuration Click on `Test Connection` to verify the connectivity with the docker server.
+
+i. Click on `Enabled` checkbox to enable this slave node configuration
+
+j. Then click on `Docker Agent Templates` and then `Add Docker Template`
+
+``` 
+Labels                  : <any_label_for node>
+Click on Enabled checkbox
+Name                    : <any name for the node>
+Docker Image            : <docker_image_for_slave_node>
+Remote File System Root : <root__or_home_directory_of configured_user>
+Connect Method          : Connect with SSH
+    Select Use Configured SSH Credentials from `SSH Key` dropdown
+    Click on Add in SSH Credentials option
+        Provide Login details for the Container Image i.e username and password
+    Host Key Verification Strategy: Non Verifying Verification Strategy
+
+Pull Strategy            : Pull Once and Update Latest 
+```
+
+<p align="center">
+  <img src="screenshots/configure_cloud_docker_image_credentials.png" width="950" title="Configure Container Image Credentials">
+  <br>
+  <em>Fig 4.: Configure Container Image Credentials  </em>
+</p>
+
+
+<p align="center">
+  <img src="screenshots/configure_cloud_docker_image_pull_strategy.png" width="950" title="Configure Container Image Details">
+  <br>
+  <em>Fig 5.: Configure Container Image Pull Strategy  </em>
+</p>
+
+k. Click on `Save and Apply`
