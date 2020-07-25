@@ -199,3 +199,73 @@ Pull Strategy            : Pull Once and Update Latest
 </p>
 
 k. Click on `Save and Apply`
+
+
+
+## Trigger Deployment when changes are pushed to SCM
+
+## Job 1: Build and Push Image due to SCM Changes
+
+Steps to create Build-Configuration Job are as follows:
+
+1. Create a New Item at the left column in Jenkins Welcome page
+
+2. Configure Job Name
+
+<p align="center">
+  <img src="screenshots/build_config_creation.png" width="950" title="Job Name Configuration">
+  <br>
+  <em>Fig 6.: Job Name Configuration  </em>
+</p>
+
+3. Configure github project URL
+
+The **website code** that is used in this repository for *deployment* on EC2 web server [Github URL](https://github.com/riteshsoni10/demo_website.git)
+
+4. Configure **Source Code Management** 
+
+<p align="center">
+  <img src="screenshots/build_config_git_repo.png" width="950" title="SCM Configuration">
+  <br>
+  <em>Fig 7.: Source Code Management Configuration  </em>
+</p>
+
+5. Configure **Build Triggers**
+
+The Job should be triggered only when any changes are pushed to the code repository. So we need to enable the checkbox near Poll SCM and configure the schedular to run at every minute by setting "* * * * * " value.
+
+<p align="center">
+  <img src="screenshots/build_config_build_triggers.png" width="950" title="Build Triggers">
+  <br>
+  <em>Fig 7.: Configure Build Triggers  </em>
+</p>
+
+6. Steps to perform at **Build Stage**
+
+Select `Build/Publish Docker Image` from `Add Build Step` dropdown.
+
+```
+Directory for Dockerfile : .
+    > Here "." repersents current directory
+Cloud : <label_donfigured_for_cloud>
+Image: <image_name_to_be_pushed_in_docker_registry>
+Enable `Push Image` checkbox
+Registry Credentials:
+    Click on Add
+        And Provide Docker Hub Repository credentials to perform push operation 
+```
+
+<p align="center">
+  <img src="screenshots/build_config_build_stage.png" width="950" title="Build and Push Image">
+  <br>
+  <em>Fig 8.: Build and Push Application Container Image  </em>
+</p>
+
+7. Save and Apply
+
+<p align="center">
+  <img src="screenshots/build_config_success.png" width="950" title="Build Triggers">
+  <br>
+  <em>Fig 8.: Job Console Output </em>
+</p>
+
