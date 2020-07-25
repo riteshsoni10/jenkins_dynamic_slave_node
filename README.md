@@ -1,2 +1,2 @@
-# devops_al_dynamic_slave_node
-Deploy Application on Kubernetes Cluster using Jenkins Dynamic Slave Node
+# Automated Deployment using Jenkins Dynamic Slave Node
+Deploy Application on Kubernetes Cluster
